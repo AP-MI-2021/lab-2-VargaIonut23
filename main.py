@@ -67,9 +67,24 @@ def get_age_in_days(zi, luna , an) :
  return ziletotale
 # am calculat numarul zilelor din anul curent
 # am luat ca data de referinta ziua de 1.10.2021
+
+
+def is_superprime(n) :
+ ok = 1
+ copien = n
+ while (copien > 0 ) :
+  if( is_prime(copien) == 0) :
+   ok = 0
+   break
+  copien = copien // 10
+
+ return ok
+
+
 def main():
     print(get_largest_prime_below(3))
-    print (get_age_in_days(1 , 10 , 2001))
+    print(get_age_in_days(1 , 10 , 2001))
+    print(is_superprime(237))
 
 if __name__ == "__main__":
     main()

@@ -1,4 +1,3 @@
-
 def is_prime(n):
  if n < 2:
   return 0
@@ -17,6 +16,13 @@ def get_largest_prime_below(n) :
  for i in range (n , 1 , -1) :
   if is_prime(i) == 1 :
    return i
+
+def test_get_largest_prime_below():
+ assert get_largest_prime_below(9) == 7
+ assert get_largest_prime_below(3) == 3
+ assert get_largest_prime_below(14) == 13
+ assert get_largest_prime_below(17) == 17
+ assert get_largest_prime_below(42) == 41
 
 def get_age_in_days(zi, luna , an) :
  if an % 4 == 0 and an % 100 == 0 and an % 400 == 0 :
@@ -68,6 +74,13 @@ def get_age_in_days(zi, luna , an) :
 # am calculat numarul zilelor din anul curent
 # am luat ca data de referinta ziua de 1.10.2021
 
+def test_get_age_in_days() :
+ assert get_age_in_days (1 , 10 , 2001) == 7305
+ assert get_age_in_days(2, 12, 2010) == 3956
+ assert get_age_in_days(23, 3, 2003) == 6767
+ assert get_age_in_days(25, 12, 1989) == 11603
+ assert get_age_in_days(11, 9, 2005) == 5864
+
 
 def is_superprime(n) :
  ok = 1
@@ -80,11 +93,36 @@ def is_superprime(n) :
 
  return ok
 
+def test_is_superprime() :
+  assert is_superprime (233) == 1
+  assert is_superprime (27) == 0
+  assert is_superprime (71) == 1
+  assert is_superprime (235) == 0
+  assert is_superprime (31) == 1
 
-def main():
-    print(get_largest_prime_below(3))
-    print(get_age_in_days(1 , 10 , 2001))
-    print(is_superprime(237))
+shouldRun = True
 
-if __name__ == "__main__":
-    main()
+while shouldRun:
+    print("1.Determina cel mai mare numar prim mai mic decat cel dat")
+    print("2.Determina numarul de zile de la o data pana in prezent")
+    print("3.Determina daca un numar este superprim")
+    print("4.Iesire")
+    optiune = int(input("Selectati optiunea: "))
+    if optiune == 1:
+      test_get_largest_prime_below()
+      n = int(input("Dati numarul: "))
+      print(get_largest_prime_below(n))
+    elif optiune == 2:
+      test_get_age_in_days()
+      ziua = int(input("Dati ziua: "))
+      luna = int(input("Dati luna: "))
+      anul = int(input("Dati anul: "))
+      print(get_age_in_days (ziua , luna ,anul))
+    elif optiune == 3:
+      test_is_superprime()
+      n=int(input("Dati numarul: "))
+      print(is_superprime(n))
+    elif optiune == 4:
+      shouldRun = False
+    else :
+      print("Optiune gresita! Reincercati!")

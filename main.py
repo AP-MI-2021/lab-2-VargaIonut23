@@ -114,9 +114,14 @@ while shouldRun:
       print(get_largest_prime_below(n))
     elif optiune == 2:
       test_get_age_in_days()
-      ziua = int(input("Dati ziua: "))
-      luna = int(input("Dati luna: "))
-      anul = int(input("Dati anul: "))
+      l = []
+      listasstring = input("Introduceti data: ")
+      numberasstring = listasstring.split("/")
+      for x in numberasstring:
+          l.append(int(x))
+      ziua = l[0]
+      luna = l[1]
+      anul = l[2]
       print(get_age_in_days (ziua , luna ,anul))
     elif optiune == 3:
       test_is_superprime()
